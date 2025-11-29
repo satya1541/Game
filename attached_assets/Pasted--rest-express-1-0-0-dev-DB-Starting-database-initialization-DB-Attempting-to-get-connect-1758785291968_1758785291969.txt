@@ -1,0 +1,126 @@
+
+> rest-express@1.0.0 dev
+[DB] Starting database initialization...
+[DB] Attempting to get connection from pool...
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+Starting server setup...
+Registering routes...
+Routes registered successfully
+Setting up Vite...
+Vite setup complete
+Starting server on port 5000...
+[7:27:26 AM] express: serving on port 5000
+[DB] Database connection successful!
+[DB] Creating users table if it doesn't exist...
+Browserslist: browsers data (caniuse-lite) is 11 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[DB] Users table created/verified successfully
+[DB] All database initialization completed successfully!
+[API] GET /api/stats - Request started
+[API] Calling storage methods for statistics...
+[STORAGE] getFileCount - Starting query
+[STORAGE] getTotalDownloads - Starting query
+[STORAGE] getCategoryStats - Starting query
+[STORAGE] getTotalStorageUsed - Starting query
+[STORAGE] getActiveUsersCount - Starting query
+[API] GET /api/files - Request started
+[API] Query params: { sort: 'recent' }
+[API] Calling storage.getFiles with: {
+  category: undefined,
+  search: undefined,
+  sort: 'recent',
+  limit: 20,
+  offset: 0
+}
+[STORAGE] getFiles - Starting query with params: {
+  category: undefined,
+  search: undefined,
+  sort: 'recent',
+  limit: 20,
+  offset: 0
+}
+[STORAGE] getFiles - Added ordering: uploaded_at DESC
+[STORAGE] getFiles - Final query: SELECT id, filename, original_name, size, mimetype, category, description, download_count, uploaded_at, uploaded_by, s3_url, s3_key FROM files WHERE 1=1 ORDER BY uploaded_at DESC LIMIT 20
+[STORAGE] getFiles - Query params: []
+[API] GET /api/folders - Request started
+[API] Calling storage.getCategoryStats()
+[STORAGE] getCategoryStats - Starting query
+[STORAGE] getFileCount - Query successful, count: 4
+[STORAGE] getCategoryStats - Query successful, 3 categories found
+[STORAGE] getCategoryStats - Category: apks, Count: 1
+[STORAGE] getCategoryStats - Category: scripts, Count: 1
+[STORAGE] getCategoryStats - Category: emulators, Count: 2
+[STORAGE] getCategoryStats - Final stats: { apks: 1, scripts: 1, emulators: 2 }
+[STORAGE] getTotalStorageUsed - Query successful, total: 105916713
+[STORAGE] getTotalDownloads - Query successful, total: 4
+[STORAGE] getActiveUsersCount - Query successful, active users: 1
+[API] Statistics retrieved: {
+  fileCount: 4,
+  totalDownloads: '4',
+  categoryStats: { apks: 1, scripts: 1, emulators: 2 },
+  totalStorageBytes: '105916713',
+  activeUsers: 1
+}
+[API] GET /api/stats - Success, returning: {
+  totalFiles: 4,
+  totalDownloads: '4',
+  activeUsers: 1,
+  totalStorage: '101 MB',
+  categoryStats: { apks: 1, scripts: 1, emulators: 2 }
+}
+[STORAGE] getFiles - Query successful, 4 files returned
+[API] storage.getFiles returned 4 files
+[API] GET /api/files - Success, returning 4 files
+[STORAGE] getCategoryStats - Query successful, 3 categories found
+[STORAGE] getCategoryStats - Category: apks, Count: 1
+[STORAGE] getCategoryStats - Category: scripts, Count: 1
+[STORAGE] getCategoryStats - Category: emulators, Count: 2
+[STORAGE] getCategoryStats - Final stats: { apks: 1, scripts: 1, emulators: 2 }
+[API] storage.getCategoryStats returned: { apks: 1, scripts: 1, emulators: 2 }
+[API] Processing category: apks, fileCount: 1
+[API] Getting files for category: apks
+[STORAGE] getFiles - Starting query with params: {
+  category: 'apks',
+  search: undefined,
+  sort: undefined,
+  limit: 20,
+  offset: 0
+}
+[STORAGE] getFiles - Added category filter: apks
+[STORAGE] getFiles - Added ordering: uploaded_at DESC
+[STORAGE] getFiles - Final query: SELECT id, filename, original_name, size, mimetype, category, description, download_count, uploaded_at, uploaded_by, s3_url, s3_key FROM files WHERE 1=1 AND category = ? ORDER BY uploaded_at DESC LIMIT 20
+[STORAGE] getFiles - Query params: [ 'apks' ]
+[STORAGE] getFiles - Query successful, 1 files returned
+[API] Got 1 files for category: apks
+[API] Processing category: scripts, fileCount: 1
+[API] Getting files for category: scripts
+[STORAGE] getFiles - Starting query with params: {
+  category: 'scripts',
+  search: undefined,
+  sort: undefined,
+  limit: 20,
+  offset: 0
+}
+[STORAGE] getFiles - Added category filter: scripts
+[STORAGE] getFiles - Added ordering: uploaded_at DESC
+[STORAGE] getFiles - Final query: SELECT id, filename, original_name, size, mimetype, category, description, download_count, uploaded_at, uploaded_by, s3_url, s3_key FROM files WHERE 1=1 AND category = ? ORDER BY uploaded_at DESC LIMIT 20
+[STORAGE] getFiles - Query params: [ 'scripts' ]
+[STORAGE] getFiles - Query successful, 1 files returned
+[API] Got 1 files for category: scripts
+[API] Processing category: emulators, fileCount: 2
+[API] Getting files for category: emulators
+[STORAGE] getFiles - Starting query with params: {
+  category: 'emulators',
+  search: undefined,
+  sort: undefined,
+  limit: 20,
+  offset: 0
+}
+[STORAGE] getFiles - Added category filter: emulators
+[STORAGE] getFiles - Added ordering: uploaded_at DESC
+[STORAGE] getFiles - Final query: SELECT id, filename, original_name, size, mimetype, category, description, download_count, uploaded_at, uploaded_by, s3_url, s3_key FROM files WHERE 1=1 AND category = ? ORDER BY uploaded_at DESC LIMIT 20
+[STORAGE] getFiles - Query params: [ 'emulators' ]
+[STORAGE] getFiles - Query successful, 2 files returned
+[API] Got 2 files for category: emulators
+[API] GET /api/folders - Success, returning 3 folders
